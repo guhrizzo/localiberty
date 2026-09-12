@@ -19,6 +19,11 @@ a { color: inherit; text-decoration: none; }
 .nav { height: 104px; display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 2; border-bottom: 1px solid rgba(51,7,22,.2); }
 .wordmark { font-size: 23px; line-height: 1; font-weight: 900; letter-spacing: -.09em; }
 .wordmark-dot { color: var(--orange); }
+.brand-logo { display: block; overflow: hidden; line-height: 0; }
+.brand-logo img { display: block; width: 164px; height: 42px; object-fit: cover; object-position: center; }
+.brand-logo-dark img { width: 178px; height: 46px; }
+.section-logo { width: 118px; height: 31px; object-fit: cover; margin-left: auto; margin-right: 34px; }
+.footer { background: var(--wine); color: var(--cream); border-top-color: rgba(255,236,204,.27); }
 .nav-links { display: flex; gap: 38px; margin-left: 130px; font-size: 11px; text-transform: uppercase; letter-spacing: .16em; font-weight: 700; }
 .nav-links a, .nav-action { transition: color .2s ease; }
 .nav-links a:hover, .nav-action:hover { color: var(--orange); }
@@ -70,6 +75,8 @@ h1 em { color: var(--orange); font-style: normal; }
   .nav { height: 82px; }
   .nav-links { display: none; }
   .nav-action { padding: 11px 12px; }
+  .brand-logo img { width: 142px; height: 36px; }
+  .section-logo { width: 92px; height: 24px; margin-right: 15px; }
   .hero-content { padding-top: 80px; }
   .hero::after { width: 390px; height: 390px; right: -150px; top: 350px; }
   h1 { font-size: clamp(72px, 21vw, 122px); margin-top: 29px; }

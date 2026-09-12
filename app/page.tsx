@@ -33,7 +33,9 @@ export default function Home() {
     <main>
       <section className="hero" id="operacao">
         <nav className="nav shell" aria-label="Navegação principal">
-          <a className="wordmark" href="#operacao" aria-label="LIBERTY, início">LIBERTY<span className="wordmark-dot">.</span></a>
+          <a className="brand-logo brand-logo-light" href="#operacao" aria-label="LIBERTY, início">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-claro-OphbVWmaPU5SJpxRI0Lf73uDAugMND.jpg" alt="LOCALIBERTY" />
+          </a>
           <div className="nav-links">
             {navItems.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}
           </div>
@@ -62,7 +64,7 @@ export default function Home() {
 
       <section className="principles" id="fluxo">
         <div className="shell">
-          <div className="section-heading"><p className="eyebrow">O que sustenta a operação</p><span className="section-index">02 — 04</span></div>
+          <div className="section-heading"><p className="eyebrow">O que sustenta a operação</p><img className="section-logo" src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-laranja-gvERy1jSWb2zEBQ9p88IIwj0egxUxG.jpg" alt="LOCALIBERTY" /><span className="section-index">02 — 04</span></div>
           <div className="principle-grid">
             {pillars.map((pillar) => (
               <article className="principle-card" key={pillar.number}>
@@ -96,7 +98,9 @@ export default function Home() {
       </section>
 
       <footer className="footer shell">
-        <a className="wordmark" href="#operacao">LIBERTY<span className="wordmark-dot">.</span></a>
+        <a className="brand-logo brand-logo-dark" href="#operacao" aria-label="LIBERTY, início">
+          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-escuro-RwOy62EHREn7cBLPieCC6EJKHARNzA.jpg" alt="LOCALIBERTY" />
+        </a>
         <p>Gestão que movimenta.</p>
         <span>© 2026 LIBERTY</span>
       </footer>
