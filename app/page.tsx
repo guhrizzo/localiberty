@@ -1,69 +1,109 @@
-import Image from "next/image";
+const navItems = [
+  { label: "A operação", href: "#operacao" },
+  { label: "Para quem", href: "#agentes" },
+  { label: "Como funciona", href: "#fluxo" },
+];
+
+const pillars = [
+  {
+    number: "01",
+    title: "Gestão completa",
+    text: "A Liberty cuida de clientes, contratos, cobrança, rastreamento, vistorias, manutenção e comunicação.",
+  },
+  {
+    number: "02",
+    title: "Resultado real",
+    text: "Cada veículo funciona como uma unidade de negócio: receita, custos, responsabilidades e resultado sempre claros.",
+  },
+  {
+    number: "03",
+    title: "Dados para escalar",
+    text: "A operação registra o que acontece para descobrir custos reais, precificar melhor e administrar frotas maiores.",
+  },
+];
+
+const agents = [
+  { title: "Proprietário", text: "Coloque seu veículo para gerar renda sem precisar cuidar da operação do dia a dia." },
+  { title: "Liberty", text: "Administre veículos de terceiros com controle financeiro e operacional em um só lugar." },
+  { title: "Cliente", text: "Alugue de forma organizada e acompanhe sua jornada até uma possível aquisição." },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
+    <main>
+      <section className="hero" id="operacao">
+        <nav className="nav shell" aria-label="Navegação principal">
+          <a className="brand-logo brand-logo-light" href="#operacao" aria-label="LIBERTY, início">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-claro-OphbVWmaPU5SJpxRI0Lf73uDAugMND.jpg" alt="LOCALIBERTY" />
           </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          <div className="nav-links">
+            {navItems.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}
+          </div>
+          <a className="nav-action" href="mailto:contato@liberty.exemplo">Fale com a gente <span aria-hidden="true">↗</span></a>
+        </nav>
+
+        <div className="hero-content shell">
+          <div className="hero-kicker"><span className="kicker-line" /> Infraestrutura para uma nova mobilidade</div>
+          <h1>Seu carro.<br /><em>Seu caminho.</em></h1>
+          <div className="hero-bottom">
+            <p className="hero-intro">A Liberty conecta proprietários, clientes e operação para transformar veículos em negócios bem administrados.</p>
+            <a className="circle-link" href="#fluxo" aria-label="Conheça como funciona"><span>↓</span></a>
+          </div>
         </div>
-      </main>
-    </div>
+        <div className="hero-sticker" aria-hidden="true"><span>GESTÃO<br />LIVRE</span><i>✳</i></div>
+        <div className="hero-number" aria-hidden="true">01 / 04</div>
+      </section>
+
+      <section className="statement shell">
+        <p className="eyebrow">A ideia</p>
+        <div>
+          <h2>Mais do que<br /><span>alugar carros.</span></h2>
+          <p className="statement-copy">A Liberty cria a infraestrutura central para administrar veículos de terceiros, gerar renda para proprietários e oferecer ao cliente uma jornada simples, transparente e organizada.</p>
+        </div>
+      </section>
+
+      <section className="principles" id="fluxo">
+        <div className="shell">
+          <div className="section-heading"><p className="eyebrow">O que sustenta a operação</p><img className="section-logo" src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-laranja-gvERy1jSWb2zEBQ9p88IIwj0egxUxG.jpg" alt="LOCALIBERTY" /><span className="section-index">02 — 04</span></div>
+          <div className="principle-grid">
+            {pillars.map((pillar) => (
+              <article className="principle-card" key={pillar.number}>
+                <span className="principle-number">{pillar.number}</span>
+                <div><h3>{pillar.title}</h3><p>{pillar.text}</p></div>
+                <span className="card-arrow" aria-hidden="true">↗</span>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="statement shell" id="agentes">
+        <p className="eyebrow">Uma rede de confiança</p>
+        <div>
+          <h2>Três lados.<br /><span>Um movimento.</span></h2>
+          <div className="agent-list">
+            {agents.map((agent) => <article className="agent-item" key={agent.title}><h3>{agent.title}</h3><p>{agent.text}</p></article>)}
+          </div>
+        </div>
+      </section>
+
+      <section className="manifesto shell">
+        <div className="manifesto-mark" aria-hidden="true">L</div>
+        <div className="manifesto-content">
+          <p className="eyebrow">O compromisso LIBERTY</p>
+          <blockquote>“Quanto mais claro o caminho, mais livre é a escolha.”</blockquote>
+          <p className="manifesto-copy">Da vistoria de entrada ao resultado final, cada etapa é registrada. Assim, quem tem o veículo, quem faz a gestão e quem dirige sabe exatamente onde está.</p>
+          <a className="primary-button" href="mailto:contato@liberty.exemplo">Conheça a Liberty <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <footer className="footer shell">
+        <a className="brand-logo brand-logo-dark" href="#operacao" aria-label="LIBERTY, início">
+          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-escuro-RwOy62EHREn7cBLPieCC6EJKHARNzA.jpg" alt="LOCALIBERTY" />
+        </a>
+        <p>Gestão que movimenta.</p>
+        <span>© 2026 LIBERTY</span>
+      </footer>
+    </main>
   );
 }
