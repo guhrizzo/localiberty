@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "LIBERTY — Viva do seu jeito",
-  description: "Um convite para tirar o piloto automático e escolher a própria direção.",
+  title: "LIBERTY — Gestão que movimenta",
+  description: "A infraestrutura para administrar veículos, gerar renda para proprietários e oferecer uma jornada transparente aos clientes.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

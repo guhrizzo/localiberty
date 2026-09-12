@@ -40,6 +40,11 @@ h1 em { color: var(--orange); font-style: normal; }
 .statement h2 { font-size: clamp(50px, 6vw, 88px); line-height: .95; letter-spacing: -.07em; margin: 0; font-weight: 900; }
 .statement h2 span { color: var(--orange); }
 .statement-copy { grid-column: 2; max-width: 390px; font-size: 16px; line-height: 1.55; margin: 43px 0 0; }
+.agent-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 58px; }
+.agent-item { border-top: 1px solid rgba(51,7,22,.25); padding-top: 18px; }
+.agent-item h3 { font-size: 19px; margin: 0 0 10px; letter-spacing: -.04em; }
+.agent-item p { color: var(--muted); font-size: 14px; line-height: 1.5; margin: 0; }
+.manifesto-copy { max-width: 535px; color: var(--muted); font-size: 15px; line-height: 1.55; margin: -18px 0 35px; }
 .principles { background: var(--wine); color: var(--cream); padding: 87px 0 104px; }
 .section-heading { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,236,204,.27); padding-bottom: 23px; }
 .section-index { font-size: 10px; letter-spacing: .15em; color: #d8b99f; }
@@ -74,6 +79,9 @@ h1 em { color: var(--orange); font-style: normal; }
   .statement { padding: 95px 0; display: block; }
   .statement h2 { margin-top: 30px; font-size: clamp(48px, 14vw, 77px); }
   .statement-copy { margin-top: 32px; }
+  .agent-list { display: block; margin-top: 45px; }
+  .agent-item { padding: 18px 0 20px; }
+  .manifesto-copy { margin: -10px 0 30px; }
   .principles { padding: 65px 0 30px; }
   .principle-grid { display: block; }
   .principle-card { min-height: 225px; border-right: 0; border-bottom: 1px solid rgba(255,236,204,.27); margin: 0; padding: 27px 0; }
