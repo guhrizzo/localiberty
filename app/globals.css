@@ -102,3 +102,14 @@ h1 em { color: var(--orange); font-style: normal; }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
 :focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }
+
+/* Páginas de texto (Privacidade, Termos) */
+.legal { padding: 60px 0 120px; max-width: 720px; }
+.legal-back { display: inline-block; margin-bottom: 40px; font-size: 13px; font-weight: 700; letter-spacing: .02em; color: var(--muted); transition: color .2s ease; }
+.legal-back:hover { color: var(--orange); }
+.legal h1 { font-size: clamp(36px, 6vw, 56px); line-height: .98; letter-spacing: -.04em; font-weight: 900; margin: 22px 0 0; max-width: none; }
+.legal-updated { color: var(--muted); font-size: 13px; margin: 14px 0 0; }
+.legal-content { margin-top: 44px; }
+.legal-content h2 { font-size: 22px; letter-spacing: -.02em; font-weight: 900; margin: 40px 0 14px; }
+.legal-content p { font-size: 15px; line-height: 1.7; color: var(--muted); margin: 0 0 16px; }
+.legal-content a { color: var(--orange); text-decoration: underline; }
