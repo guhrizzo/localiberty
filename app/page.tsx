@@ -1,8 +1,4 @@
-const navItems = [
-  { label: "A operação", href: "#operacao" },
-  { label: "Para quem", href: "#agentes" },
-  { label: "Como funciona", href: "#fluxo" },
-];
+import { SiteNav } from "@/components/site-nav";
 
 const pillars = [
   {
@@ -31,17 +27,9 @@ const agents = [
 export default function Home() {
   return (
     <main>
-      <section className="hero" id="operacao">
-        <nav className="nav shell" aria-label="Navegação principal">
-          <a className="brand-logo brand-logo-light" href="#operacao" aria-label="LIBERTY, início">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-claro-OphbVWmaPU5SJpxRI0Lf73uDAugMND.jpg" alt="LOCALIBERTY" />
-          </a>
-          <div className="nav-links">
-            {navItems.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}
-          </div>
-          <a className="nav-action" href="mailto:contato@liberty.exemplo">Fale com a gente <span aria-hidden="true">↗</span></a>
-        </nav>
+      <SiteNav />
 
+      <section className="hero" id="operacao">
         <div className="hero-content shell">
           <div className="hero-kicker"><span className="kicker-line" /> Infraestrutura para uma nova mobilidade</div>
           <h1>Seu carro.<br /><em>Seu caminho.</em></h1>
@@ -97,24 +85,34 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="footer shell">
-        <a className="brand-logo brand-logo-dark" href="#operacao" aria-label="LIBERTY, início">
-          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-escuro-RwOy62EHREn7cBLPieCC6EJKHARNzA.jpg" alt="LOCALIBERTY" />
-        </a>
-        <p>Gestão que movimenta.</p>
-        <a className="footer-link" href="https://www.grupolibertycar.com.br/" target="_blank" rel="noopener noreferrer">
-          Liberty Car — compre um veículo ↗
-        </a>
-        <a className="footer-link" href="https://system.localiberty.com" target="_blank" rel="noopener noreferrer">
-          Acessar o sistema ↗
-        </a>
-        <span>© 2026 LIBERTY</span>
-        <span>
-          Desenvolvido por{" "}
-          <a className="footer-link" href="https://www.instagram.com/gfrizzo_/" target="_blank" rel="noopener noreferrer">
-            Gustavo Rizzo
-          </a>
-        </span>
+      <footer className="footer">
+        <div className="shell footer-inner">
+          <div className="footer-top">
+            <div className="footer-brand">
+              <a className="brand-logo brand-logo-dark" href="#operacao" aria-label="LIBERTY, início">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-escuro-RwOy62EHREn7cBLPieCC6EJKHARNzA.jpg" alt="LOCALIBERTY" />
+              </a>
+              <p>Gestão que movimenta.</p>
+            </div>
+            <nav className="footer-links" aria-label="Links do rodapé">
+              <a className="footer-link" href="https://www.grupolibertycar.com.br/" target="_blank" rel="noopener noreferrer">
+                Liberty Car — compre um veículo <span aria-hidden="true">↗</span>
+              </a>
+              <a className="footer-link" href="https://system.localiberty.com" target="_blank" rel="noopener noreferrer">
+                Acessar o sistema <span aria-hidden="true">↗</span>
+              </a>
+            </nav>
+          </div>
+          <div className="footer-bottom">
+            <span>© 2026 LIBERTY</span>
+            <span>
+              Desenvolvido por{" "}
+              <a className="footer-link" href="https://www.instagram.com/gfrizzo_/" target="_blank" rel="noopener noreferrer">
+                Gustavo Rizzo
+              </a>
+            </span>
+          </div>
+        </div>
       </footer>
     </main>
   );
