@@ -189,6 +189,12 @@ export default async function Home() {
           Liberty Car — compre um veículo ↗
         </a>
         <span>© 2026 LIBERTY</span>
+        <span>
+          Desenvolvido por{" "}
+          <a className="footer-link" href="https://www.instagram.com/gfrizzo_/" target="_blank" rel="noopener noreferrer">
+            Gustavo Rizzo
+          </a>
+        </span>
       </footer>
     </main>
   );
