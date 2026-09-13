@@ -115,6 +115,19 @@ h1 em { color: var(--orange); font-style: normal; }
 .footer-link:hover { color: var(--orange); }
 .footer-link span { margin-left: 4px; }
 
+/* Página 404 — mesma linguagem visual do site (tipografia, paleta,
+   selo circular do hero, marca gigante do manifesto) em vez de um
+   componente de galeria genérico. */
+.notfound { min-height: 100dvh; background: var(--cream); display: flex; align-items: center; padding: 70px 0; }
+.notfound-inner { position: relative; }
+.notfound-logo { display: inline-block; margin-bottom: 72px; }
+.notfound-content { display: grid; grid-template-columns: 1fr 1.3fr; gap: 56px; align-items: center; }
+.notfound-mark { font-size: clamp(140px, 20vw, 260px); line-height: .8; font-weight: 900; letter-spacing: -.02em; color: var(--orange); }
+.notfound-text h1 { font-size: clamp(34px, 4vw, 52px); line-height: 1.08; letter-spacing: -.03em; font-weight: 900; margin: 18px 0 20px; max-width: 480px; }
+.notfound-copy { color: var(--muted); font-size: 15px; line-height: 1.55; max-width: 420px; margin: 0 0 32px; }
+.notfound-badge { position: absolute; right: 4px; top: -28px; width: 118px; height: 118px; background: var(--wine); color: var(--cream); border-radius: 50%; transform: rotate(-9deg); display: grid; place-items: center; text-align: center; font-size: 13px; line-height: .95; font-weight: 900; letter-spacing: -.02em; }
+.notfound-badge i { color: var(--orange); font-size: 24px; font-style: normal; position: absolute; bottom: 15px; }
+
 @media (max-width: 720px) {
   .shell { width: min(100% - 40px, 560px); }
   .hero { min-height: 720px; padding-top: 82px; }
@@ -148,6 +161,11 @@ h1 em { color: var(--orange); font-style: normal; }
   .footer-top { align-items: flex-start; gap: 24px; padding-bottom: 28px; }
   .footer-links { flex-direction: column; gap: 12px; }
   .footer-bottom { flex-direction: column; gap: 10px; padding-top: 20px; }
+  .notfound { padding: 48px 0; }
+  .notfound-logo { margin-bottom: 44px; }
+  .notfound-content { grid-template-columns: 1fr; gap: 28px; }
+  .notfound-mark { font-size: clamp(96px, 34vw, 160px); }
+  .notfound-badge { position: static; margin-bottom: 4px; width: 96px; height: 96px; font-size: 11px; transform: rotate(-6deg); }
 }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
