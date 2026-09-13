@@ -4,20 +4,24 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
+// 10 paths por lado (20 no total) em vez de 36 (72 no total) — o número
+// original sobrecarregava a thread principal com animações via JS
+// simultâneas e causava engasgos visíveis na página inteira, não só
+// nas linhas.
 function FloatingPaths({ position }: { position: number }) {
-  const paths = Array.from({ length: 36 }, (_, i) => ({
+  const paths = Array.from({ length: 10 }, (_, i) => ({
     id: i,
-    d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${
-      380 - i * 5 * position
-    } -${189 + i * 6} -${312 - i * 5 * position} ${216 - i * 6} ${
-      152 - i * 5 * position
-    } ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${
-      684 - i * 5 * position
-    } ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
-    width: 0.5 + i * 0.03,
+    d: `M-${380 - i * 18 * position} -${189 + i * 22}C-${
+      380 - i * 18 * position
+    } -${189 + i * 22} -${312 - i * 18 * position} ${216 - i * 22} ${
+      152 - i * 18 * position
+    } ${343 - i * 22}C${616 - i * 18 * position} ${470 - i * 22} ${
+      684 - i * 18 * position
+    } ${875 - i * 22} ${684 - i * 18 * position} ${875 - i * 22}`,
+    width: 0.5 + i * 0.1,
     // Duração variada mas determinística — Math.random() direto no JSX
     // é impuro e faz a animação recomeçar do zero a cada re-render.
-    duration: 20 + ((i * 7) % 11),
+    duration: 14 + ((i * 7) % 11),
   }));
 
   return (
@@ -34,17 +38,17 @@ function FloatingPaths({ position }: { position: number }) {
             d={path.d}
             stroke="currentColor"
             strokeWidth={path.width}
-            strokeOpacity={0.1 + path.id * 0.03}
-            initial={{ pathLength: 0.3, opacity: 0.6 }}
-            animate={{
-              pathLength: 1,
-              opacity: [0.3, 0.6, 0.3],
-              pathOffset: [0, 1, 0],
-            }}
+            strokeOpacity={0.15 + path.id * 0.04}
+            // Só opacidade "respirando" em loop — a versão anterior
+            // também animava pathLength (uma vez) e pathOffset (em
+            // loop) ao mesmo tempo, uma combinação dessincronizada que
+            // deixava as linhas com aparência quebrada/instável.
+            initial={{ opacity: 0.3 }}
+            animate={{ opacity: [0.2, 0.5, 0.2] }}
             transition={{
               duration: path.duration,
               repeat: Number.POSITIVE_INFINITY,
-              ease: "linear",
+              ease: "easeInOut",
             }}
           />
         ))}
@@ -80,7 +84,7 @@ export function BackgroundPaths({
           transition={{ duration: 1.4 }}
           className="mx-auto max-w-4xl"
         >
-          <h1 className="mb-6 text-4xl font-black tracking-tighter sm:text-6xl md:text-8xl">
+          <h1 className="mb-6 pb-2 text-4xl font-black leading-[1.15] tracking-tighter text-wine sm:text-6xl md:text-8xl">
             {words.map((word, wordIndex) => (
               <span
                 key={wordIndex}
@@ -89,7 +93,7 @@ export function BackgroundPaths({
                 {word.split("").map((letter, letterIndex) => (
                   <motion.span
                     key={`${wordIndex}-${letterIndex}`}
-                    initial={{ y: 100, opacity: 0 }}
+                    initial={{ y: 60, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{
                       delay: wordIndex * 0.1 + letterIndex * 0.03,
@@ -97,7 +101,7 @@ export function BackgroundPaths({
                       stiffness: 150,
                       damping: 25,
                     }}
-                    className="inline-block bg-gradient-to-r from-wine to-wine/70 bg-clip-text text-transparent"
+                    className="inline-block"
                   >
                     {letter}
                   </motion.span>
