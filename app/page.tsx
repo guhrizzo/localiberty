@@ -105,6 +105,9 @@ export default function Home() {
         <a className="footer-link" href="https://www.grupolibertycar.com.br/" target="_blank" rel="noopener noreferrer">
           Liberty Car — compre um veículo ↗
         </a>
+        <a className="footer-link" href="https://system.localiberty.com" target="_blank" rel="noopener noreferrer">
+          Acessar o sistema ↗
+        </a>
         <span>© 2026 LIBERTY</span>
         <span>
           Desenvolvido por{" "}
