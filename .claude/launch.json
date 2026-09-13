@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "liberty-sistema",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "D:/liberty-sistema", "run", "dev", "--", "-p", "3001"],
+      "port": 3001
+    }
+  ]
+}
