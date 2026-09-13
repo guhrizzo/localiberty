@@ -90,6 +90,8 @@ h1 em { color: var(--orange); font-style: normal; }
 .primary-button span { font-size: 18px; }
 .footer { border-top: 1px solid rgba(51,7,22,.2); padding: 25px 0 33px; display: flex; justify-content: space-between; align-items: center; font-size: 10px; text-transform: uppercase; letter-spacing: .13em; font-weight: 700; }
 .footer p { color: var(--muted); margin: 0; }
+.footer-link { color: var(--muted); transition: color .2s ease; }
+.footer-link:hover { color: var(--orange); }
 
 @media (max-width: 720px) {
   .shell { width: min(100% - 40px, 560px); }

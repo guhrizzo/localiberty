@@ -102,6 +102,9 @@ export default function Home() {
           <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-escuro-RwOy62EHREn7cBLPieCC6EJKHARNzA.jpg" alt="LOCALIBERTY" />
         </a>
         <p>Gestão que movimenta.</p>
+        <a className="footer-link" href="https://www.grupolibertycar.com.br/" target="_blank" rel="noopener noreferrer">
+          Liberty Car — compre um veículo ↗
+        </a>
         <span>© 2026 LIBERTY</span>
       </footer>
     </main>
