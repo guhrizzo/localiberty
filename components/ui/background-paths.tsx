@@ -38,17 +38,20 @@ function FloatingPaths({ position }: { position: number }) {
             d={path.d}
             stroke="currentColor"
             strokeWidth={path.width}
-            strokeOpacity={0.15 + path.id * 0.04}
-            // Só opacidade "respirando" em loop — a versão anterior
-            // também animava pathLength (uma vez) e pathOffset (em
-            // loop) ao mesmo tempo, uma combinação dessincronizada que
-            // deixava as linhas com aparência quebrada/instável.
-            initial={{ opacity: 0.3 }}
-            animate={{ opacity: [0.2, 0.5, 0.2] }}
+            strokeOpacity={0.12 + path.id * 0.02}
+            // pathLength e pathOffset precisam os dois genuinamente
+            // variar (com o mesmo número de keyframes) pro Framer
+            // Motion animar de fato o traço — deixar um dos dois fixo
+            // (mesmo valor em initial/animate, ou via `style`) faz ele
+            // simplesmente não animar nada. Aqui os dois ficam
+            // sincronizados no mesmo ciclo, sem a dessincronia da
+            // versão anterior.
+            initial={{ pathLength: 0.2, pathOffset: 0 }}
+            animate={{ pathLength: [0.2, 0.5, 0.2], pathOffset: [0, 1, 0] }}
             transition={{
               duration: path.duration,
               repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
+              ease: "linear",
             }}
           />
         ))}
