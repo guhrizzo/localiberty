@@ -1,4 +1,5 @@
 import { SiteNav } from "@/components/site-nav";
+import { HeroHeading } from "@/components/hero-heading";
 
 const pillars = [
   {
@@ -30,12 +31,19 @@ export default function Home() {
       <SiteNav />
 
       <section className="hero" id="operacao">
+        <video className="hero-video" autoPlay loop muted playsInline aria-hidden="true" src="/hero-driving.mp4" />
+        <div className="hero-scrim" aria-hidden="true" />
         <div className="hero-content shell">
           <div className="hero-kicker"><span className="kicker-line" /> Infraestrutura para uma nova mobilidade</div>
-          <h1>Seu carro.<br /><em>Seu caminho.</em></h1>
-          <div className="hero-bottom">
-            <p className="hero-intro">A Liberty conecta proprietários, clientes e operação para transformar veículos em negócios bem administrados.</p>
-            <a className="circle-link" href="#fluxo" aria-label="Conheça como funciona"><span>↓</span></a>
+          <div className="hero-bottom-row">
+            <HeroHeading lines={[{ text: "Seu carro." }, { text: "Seu caminho.", emphasis: true }]} />
+            <div className="hero-panel">
+              <p className="hero-intro">A Liberty conecta proprietários, clientes e operação para transformar veículos em negócios bem administrados.</p>
+              <a className="hero-cta" href="#fluxo">
+                <span className="hero-cta-label">Como funciona</span>
+                <span className="hero-cta-icon" aria-hidden="true">↓</span>
+              </a>
+            </div>
           </div>
         </div>
         <div className="hero-sticker" aria-hidden="true"><span>GESTÃO<br />LIVRE</span><i>✳</i></div>

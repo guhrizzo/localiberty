@@ -70,8 +70,15 @@ export function SiteNav() {
       transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
     >
       <nav className="nav shell" aria-label="Navegação principal">
-        <a className="brand-logo brand-logo-light" href="#operacao" aria-label="LIBERTY, início" onClick={() => setOpen(false)}>
-          <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-claro-OphbVWmaPU5SJpxRI0Lf73uDAugMND.jpg" alt="LOCALIBERTY" />
+        <a className="brand-logo" href="#operacao" aria-label="LIBERTY, início" onClick={() => setOpen(false)}>
+          <img
+            src={
+              scrolled
+                ? "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-claro-OphbVWmaPU5SJpxRI0Lf73uDAugMND.jpg"
+                : "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-escuro-RwOy62EHREn7cBLPieCC6EJKHARNzA.jpg"
+            }
+            alt="LOCALIBERTY"
+          />
         </a>
 
         <div className="nav-links">
