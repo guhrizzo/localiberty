@@ -8,6 +8,28 @@
   --muted: #856963;
 }
 
+/* Registra os tokens acima como cores do Tailwind v4 (bg-cream,
+   text-wine, from-wine, etc.) — usado pelos componentes em
+   components/ui/, que são Tailwind-utility-based (o resto do site usa
+   as classes .hero/.shell/etc. definidas abaixo diretamente). */
+@theme inline {
+  --color-cream: var(--cream);
+  --color-orange: var(--orange);
+  --color-wine: var(--wine);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+}
+
+/* Todo o CSS abaixo era solto (fora de qualquer @layer), o que faz ele
+   sempre vencer qualquer utility do Tailwind (ex: text-4xl de um
+   componente novo), não importa a especificidade — foi o que quebrou o
+   h1 da página 404 (o h1 {font-size: clamp(...)} da hero, pensado só
+   pra essa seção, estava afetando TODO h1 do site). Envolver em
+   @layer base resolve isso: nada muda na landing hoje (nenhuma classe
+   Tailwind compete com essas regras nela), mas páginas novas que usam
+   Tailwind conseguem sobrescrever quando precisar. */
+@layer base {
+
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; background: #FFECCE; color: var(--ink); font-family: Arial, Helvetica, sans-serif; }
@@ -113,3 +135,5 @@ h1 em { color: var(--orange); font-style: normal; }
 .legal-content h2 { font-size: 22px; letter-spacing: -.02em; font-weight: 900; margin: 40px 0 14px; }
 .legal-content p { font-size: 15px; line-height: 1.7; color: var(--muted); margin: 0 0 16px; }
 .legal-content a { color: var(--orange); text-decoration: underline; }
+
+} /* fim @layer base */
