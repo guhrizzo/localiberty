@@ -102,8 +102,8 @@ export function SiteNav() {
         </div>
 
         <div className="nav-right">
-          <a className="nav-action" href="mailto:contato@liberty.exemplo">
-            Fale com a gente <span aria-hidden="true">↗</span>
+          <a className="nav-action" href="https://system.localiberty.com" target="_blank" rel="noopener noreferrer">
+            Entrar <span aria-hidden="true">↗</span>
           </a>
           <button
             type="button"
@@ -144,8 +144,8 @@ export function SiteNav() {
                   </motion.a>
                 ))}
               </nav>
-              <a className="mobile-menu-cta" href="mailto:contato@liberty.exemplo" onClick={() => setOpen(false)}>
-                Fale com a gente <span aria-hidden="true">↗</span>
+              <a className="mobile-menu-cta" href="https://system.localiberty.com" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
+                Entrar <span aria-hidden="true">↗</span>
               </a>
             </div>
           </motion.div>

@@ -180,10 +180,34 @@ h1 { font-size: clamp(78px, 11.6vw, 178px); line-height: .84; letter-spacing: -.
   .notfound-content { grid-template-columns: 1fr; gap: 28px; }
   .notfound-mark { font-size: clamp(96px, 34vw, 160px); }
   .notfound-badge { position: static; margin-bottom: 4px; width: 96px; height: 96px; font-size: 11px; transform: rotate(-6deg); }
+  .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; }
+  .whatsapp-float svg { width: 25px; height: 25px; }
+  .whatsapp-tooltip { display: none; }
 }
 
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
+/* "Reduzir movimento" só desliga o scroll suave (pular direto pra
+   âncora evita o efeito de "arremesso" que essa preferência quer
+   evitar). Transições de hover (cor, fundo, pequenos deslocamentos)
+   ficam de fora de propósito: são micro-interações de baixo risco,
+   não o tipo de movimento grande que essa preferência existe pra
+   evitar — silenciá-las globalmente (transition-duration:.01ms em
+   tudo) deixava todo hover do site seco/instantâneo em vez de suave. */
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 :focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }
+
+/* Botão flutuante do WhatsApp — mesmo estilo/comportamento do
+   libertycar.net.br, com a cor trocada pro laranja da marca. */
+.whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px; background-color: var(--orange); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 16px rgba(255,61,0,.3); z-index: 1000; transition: .3s cubic-bezier(.175,.885,.32,1.275); }
+.whatsapp-float svg { width: 30px; height: 30px; }
+/* Anel de pulso: elemento real (não ::before), animado via Web
+   Animations API em components/whatsapp-button.tsx — de propósito,
+   pra continuar pulsando mesmo com "reduzir movimento" ativo no
+   sistema (decisão da LIBERTY pra esse elemento específico). */
+.whatsapp-pulse { position: absolute; inset: 0; background-color: var(--orange); border-radius: 50%; z-index: -1; }
+.whatsapp-badge { position: absolute; top: -2px; right: -2px; background-color: var(--ink); color: #fff; font-size: 12px; font-weight: 700; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid #fff; box-shadow: 0 2px 4px rgba(0,0,0,.2); }
+.whatsapp-tooltip { position: absolute; right: 75px; background-color: #333; color: #fff; padding: 8px 15px; border-radius: 8px; font-size: 14px; white-space: nowrap; opacity: 0; visibility: hidden; transition: .3s; }
+.whatsapp-float:hover .whatsapp-tooltip { opacity: 1; visibility: visible; right: 80px; }
+.whatsapp-float:hover { transform: scale(1.1) translateY(-5px); background-color: var(--ink); box-shadow: 0 12px 20px rgba(51,7,22,.4); }
 
 /* Páginas de texto (Privacidade, Termos) */
 .legal { padding: 60px 0 120px; max-width: 720px; }
