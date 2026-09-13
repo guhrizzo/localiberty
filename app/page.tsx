@@ -28,7 +28,42 @@ const agents = [
   { title: "Cliente", text: "Alugue de forma organizada e acompanhe sua jornada até uma possível aquisição." },
 ];
 
-export default function Home() {
+interface EstoqueVeiculo {
+  id: string;
+  marca: string;
+  modelo: string;
+  ano: number;
+  preco: number | null;
+  precoComDesconto: number | null;
+  quilometragem: number | null;
+  cambio: string;
+  foto: string | null;
+  url: string;
+}
+
+const formatCurrency = (value: number | null) =>
+  value == null ? null : value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+
+// Estoque da Liberty Car (grupolibertycar.com.br) — mesma empresa, negócio
+// de venda de seminovos. Busca no server (revalidando a cada 5 min) e
+// falha em silêncio: se a outra aplicação estiver fora do ar, a seção
+// simplesmente não aparece, sem quebrar a landing.
+async function getEstoque(): Promise<EstoqueVeiculo[]> {
+  try {
+    const res = await fetch("https://www.grupolibertycar.com.br/api/estoque-publico?limit=6", {
+      next: { revalidate: 300 },
+    });
+    if (!res.ok) return [];
+    const data = await res.json();
+    return Array.isArray(data.veiculos) ? data.veiculos : [];
+  } catch {
+    return [];
+  }
+}
+
+export default async function Home() {
+  const estoque = await getEstoque();
+
   return (
     <main>
       <section className="hero" id="operacao">
@@ -96,6 +131,54 @@ export default function Home() {
           <a className="primary-button" href="mailto:contato@liberty.exemplo">Conheça a Liberty <span aria-hidden="true">↗</span></a>
         </div>
       </section>
+
+      {estoque.length > 0 && (
+        <section className="stock shell" id="estoque">
+          <div className="stock-header">
+            <div>
+              <p className="eyebrow">Liberty Car</p>
+              <h2>Escolha um carro<br />do nosso estoque.</h2>
+            </div>
+            <a
+              className="stock-cta"
+              href="https://www.grupolibertycar.com.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver todo o estoque <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <div className="stock-grid">
+            {estoque.map((veiculo) => {
+              const preco = formatCurrency(veiculo.precoComDesconto ?? veiculo.preco);
+              return (
+                <a
+                  key={veiculo.id}
+                  className="stock-card"
+                  href={veiculo.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div className="stock-card-photo">
+                    {veiculo.foto && <img src={veiculo.foto} alt={`${veiculo.marca} ${veiculo.modelo}`} />}
+                  </div>
+                  <div className="stock-card-body">
+                    <p className="stock-card-brand">{veiculo.marca}</p>
+                    <h3 className="stock-card-model">{veiculo.modelo}</h3>
+                    <p className="stock-card-meta">
+                      {veiculo.ano}
+                      {veiculo.quilometragem != null && ` • ${veiculo.quilometragem.toLocaleString("pt-BR")} km`}
+                      {veiculo.cambio && ` • ${veiculo.cambio}`}
+                    </p>
+                    {preco && <p className="stock-card-price">{preco}</p>}
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        </section>
+      )}
 
       <footer className="footer shell">
         <a className="brand-logo brand-logo-dark" href="#operacao" aria-label="LIBERTY, início">
