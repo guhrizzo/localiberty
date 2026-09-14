@@ -89,8 +89,6 @@ h1 { font-size: clamp(78px, 11.6vw, 178px); line-height: .84; letter-spacing: -.
 .hero-cta-icon { width: 52px; height: 52px; background: var(--orange); color: var(--cream); display: grid; place-items: center; font-size: 18px; transition: background .2s ease, transform .2s ease; }
 .hero-cta:hover .hero-cta-label { background: var(--orange); }
 .hero-cta:hover .hero-cta-icon { background: var(--ink); transform: translateY(3px); }
-.hero-sticker { position: absolute; z-index: 2; top: 292px; right: 110px; width: 118px; height: 118px; background: var(--cream); border-radius: 50%; transform: rotate(11deg); display: grid; place-items: center; text-align: center; font-size: 14px; line-height: .9; font-weight: 900; letter-spacing: -.04em; }
-.hero-sticker i { color: var(--orange); font-size: 28px; position: absolute; bottom: 12px; font-style: normal; }
 .hero-number { position: absolute; z-index: 2; right: 51px; bottom: 33px; font-size: 10px; font-weight: 700; letter-spacing: .15em; color: var(--cream); }
 .statement { padding: 150px 0 155px; display: grid; grid-template-columns: 1fr 2fr; column-gap: 70px; }
 .statement h2 { font-size: clamp(50px, 6vw, 88px); line-height: .95; letter-spacing: -.07em; margin: 0; font-weight: 900; }
@@ -155,7 +153,6 @@ h1 { font-size: clamp(78px, 11.6vw, 178px); line-height: .84; letter-spacing: -.
   .hero-bottom-row { padding-bottom: 44px; }
   .hero-panel { width: auto; margin: 28px 0 0; }
   .hero-intro { max-width: none; }
-  .hero-sticker { top: 425px; right: 35px; width: 90px; height: 90px; font-size: 11px; }
   .hero-number { right: 20px; bottom: 20px; }
   .statement { padding: 95px 0; display: block; }
   .statement h2 { margin-top: 30px; font-size: clamp(48px, 14vw, 77px); }

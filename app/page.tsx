@@ -46,7 +46,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="hero-sticker" aria-hidden="true"><span>GESTÃO<br />LIVRE</span><i>✳</i></div>
         <div className="hero-number" aria-hidden="true">01 / 04</div>
       </section>
 
