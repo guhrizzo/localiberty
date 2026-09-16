@@ -1,5 +1,6 @@
 import { SiteNav } from "@/components/site-nav";
 import { HeroHeading } from "@/components/hero-heading";
+import { Reveal } from "@/components/reveal";
 
 const pillars = [
   {
@@ -30,7 +31,7 @@ export default function Home() {
     <main>
       <SiteNav />
 
-      <section className="hero" id="operacao">
+      <Reveal as="section" className="hero" id="operacao" transition={{ duration: 1.1 }}>
         <video className="hero-video" autoPlay loop muted playsInline aria-hidden="true" src="/hero-driving.mp4" />
         <div className="hero-scrim" aria-hidden="true" />
         <div className="hero-content shell">
@@ -47,17 +48,17 @@ export default function Home() {
           </div>
         </div>
         <div className="hero-number" aria-hidden="true">01 / 04</div>
-      </section>
+      </Reveal>
 
-      <section className="statement shell">
+      <Reveal as="section" className="statement shell">
         <p className="eyebrow">A ideia</p>
         <div>
           <h2>Mais do que<br /><span>alugar carros.</span></h2>
           <p className="statement-copy">A Liberty cria a infraestrutura central para administrar veículos de terceiros, gerar renda para proprietários e oferecer ao cliente uma jornada simples, transparente e organizada.</p>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="principles" id="fluxo">
+      <Reveal as="section" className="principles" id="fluxo">
         <div className="shell">
           <div className="section-heading"><p className="eyebrow">O que sustenta a operação</p><img className="section-logo" src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-laranja-gvERy1jSWb2zEBQ9p88IIwj0egxUxG.jpg" alt="LOCALIBERTY" /><span className="section-index">02 — 04</span></div>
           <div className="principle-grid">
@@ -70,9 +71,9 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="statement shell" id="agentes">
+      <Reveal as="section" className="statement shell" id="agentes">
         <p className="eyebrow">Uma rede de confiança</p>
         <div>
           <h2>Três lados.<br /><span>Um movimento.</span></h2>
@@ -80,9 +81,9 @@ export default function Home() {
             {agents.map((agent) => <article className="agent-item" key={agent.title}><h3>{agent.title}</h3><p>{agent.text}</p></article>)}
           </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="manifesto shell">
+      <Reveal as="section" className="manifesto shell">
         <div className="manifesto-mark" aria-hidden="true">L</div>
         <div className="manifesto-content">
           <p className="eyebrow">O compromisso LIBERTY</p>
@@ -90,9 +91,9 @@ export default function Home() {
           <p className="manifesto-copy">Da vistoria de entrada ao resultado final, cada etapa é registrada. Assim, quem tem o veículo, quem faz a gestão e quem dirige sabe exatamente onde está.</p>
           <a className="primary-button" href="mailto:contato@liberty.exemplo">Conheça a Liberty <span aria-hidden="true">↗</span></a>
         </div>
-      </section>
+      </Reveal>
 
-      <footer className="footer">
+      <Reveal as="footer" className="footer">
         <div className="shell footer-inner">
           <div className="footer-top">
             <div className="footer-brand">
@@ -120,7 +121,7 @@ export default function Home() {
             </span>
           </div>
         </div>
-      </footer>
+      </Reveal>
     </main>
   );
 }

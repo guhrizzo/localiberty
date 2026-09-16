@@ -190,6 +190,11 @@ h1 { font-size: clamp(78px, 11.6vw, 178px); line-height: .84; letter-spacing: -.
    evitar — silenciá-las globalmente (transition-duration:.01ms em
    tudo) deixava todo hover do site seco/instantâneo em vez de suave. */
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+/* Reveal (components/reveal.tsx) anima com valores fixos, sem checar
+   useReducedMotion no JS — ramificar o JSX por esse hook diverge entre
+   SSR e cliente e o React não corrige esse tipo de mismatch na hidratação,
+   travando a seção com o estilo inicial. Neutraliza via CSS em vez disso. */
+@media (prefers-reduced-motion: reduce) { [data-reveal] { opacity: 1 !important; filter: none !important; transform: none !important; } }
 :focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }
 
 /* Botão flutuante do WhatsApp — mesmo estilo/comportamento do
