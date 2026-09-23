@@ -102,7 +102,7 @@ export function SiteNav() {
         </div>
 
         <div className="nav-right">
-          <a className="nav-action" href="https://system.localiberty.com" target="_blank" rel="noopener noreferrer">
+          <a className="nav-action" href="https://localiberty.com" target="_blank" rel="noopener noreferrer">
             Entrar <span aria-hidden="true">↗</span>
           </a>
           <button
@@ -144,7 +144,7 @@ export function SiteNav() {
                   </motion.a>
                 ))}
               </nav>
-              <a className="mobile-menu-cta" href="https://system.localiberty.com" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
+              <a className="mobile-menu-cta" href="https://localiberty.com" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
                 Entrar <span aria-hidden="true">↗</span>
               </a>
             </div>
